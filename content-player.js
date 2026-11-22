@@ -75,6 +75,29 @@
 		} );
 	}
 
+	// YouTube lists a Premium (enhanced bitrate) format as its own entry under the same quality
+	// label, and only plays it when its `formatId` is passed along with the label.
+	function getPremiumFormatId( player, quality ) {
+		if ( 'function' !== typeof player.getAvailableQualityData ) {
+			return undefined;
+		}
+
+		const qualityData = player.getAvailableQualityData();
+
+		if ( ! Array.isArray( qualityData ) ) {
+			return undefined;
+		}
+
+		const premiumFormat = qualityData.find( ( format ) =>
+			format.quality === quality &&
+			format.isPlayable &&
+			format.formatId &&
+			format.paygatedQualityDetails
+		);
+
+		return premiumFormat?.formatId;
+	}
+
 	// Shorts play in `#shorts-player` while an empty `#movie_player` stays hidden in the DOM, so
 	// only players that have a video loaded are returned.
 	function getActivePlayers() {
@@ -99,8 +122,10 @@
 				continue;
 			}
 
+			const formatId = getPremiumFormatId( player, quality );
+
 			if ( 'function' === typeof player.setPlaybackQualityRange ) {
-				player.setPlaybackQualityRange( quality, quality );
+				player.setPlaybackQualityRange( quality, quality, formatId );
 			}
 
 			if ( 'function' === typeof player.setPlaybackQuality ) {
