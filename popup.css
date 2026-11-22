@@ -1,0 +1,59 @@
+:root {
+	color-scheme: light dark;
+	--surface: #ffffff;
+	--on-surface: #1f1f1f;
+	--on-surface-variant: #474747;
+	--outline: #747775;
+	--focus: #0b57d0;
+}
+
+@media ( prefers-color-scheme: dark ) {
+	:root {
+		--surface: #1f1f1f;
+		--on-surface: #e3e3e3;
+		--on-surface-variant: #c4c7c5;
+		--outline: #8e918f;
+		--focus: #a8c7fa;
+	}
+}
+
+body {
+	margin: 0;
+	background: var( --surface );
+	color: var( --on-surface );
+	font-family: system-ui, -apple-system, sans-serif;
+}
+
+main {
+	width: 240px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+label {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+select {
+	font: inherit;
+	font-size: 14px;
+	padding: 8px 10px;
+	border: 1px solid var( --outline );
+	border-radius: 8px;
+	background: var( --surface );
+	color: var( --on-surface );
+}
+
+select:focus-visible {
+	outline: 2px solid var( --focus );
+	outline-offset: 1px;
+}
+
+p {
+	margin: 0;
+	font-size: 12px;
+	color: var( --on-surface-variant );
+}

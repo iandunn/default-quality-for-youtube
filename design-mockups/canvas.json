@@ -1,0 +1,37 @@
+{
+	"v": 3,
+	"createdOnFiles": {"v": 1, "at": "2026-11-22T09:10:00Z"},
+	"title": "Quality Popup Mockups",
+	"launch": {"view": "canvas"},
+	"pages": [],
+	"boards": {
+		"Main.dc.html": {"x": 0, "y": 0, "w": 280, "h": 150, "title": "1 · Native select"},
+		"Dark.dc.html": {"x": 440, "y": 0, "w": 300, "h": 190, "title": "2 · Dark, header icon"},
+		"RadioList.dc.html": {"x": 880, "y": 0, "w": 260, "h": 470, "title": "3 · Check list"},
+		"Chips.dc.html": {"x": 1320, "y": 0, "w": 320, "h": 230, "title": "4 · Filter chips"},
+		"Inline.dc.html": {"x": 1760, "y": 0, "w": 260, "h": 64, "title": "5 · One line"},
+		"Status.dc.html": {"x": 0, "y": 590, "w": 320, "h": 250, "title": "6 · With status"},
+		"Slider.dc.html": {"x": 440, "y": 590, "w": 320, "h": 190, "title": "7 · Slider"},
+		"Settings.dc.html": {"x": 880, "y": 590, "w": 360, "h": 110, "title": "8 · Settings row"},
+		"Stepper.dc.html": {"x": 1320, "y": 590, "w": 260, "h": 230, "title": "9 · Stepper (Heroicons)"},
+		"Grouped.dc.html": {"x": 1760, "y": 590, "w": 300, "h": 330, "title": "10 · Grouped list (Heroicons)"},
+		"ToolbarIcons.dc.html": {"x": 0, "y": 1040, "w": 600, "h": 480, "title": "Toolbar icon options"}
+	},
+	"order": [
+		"Main.dc.html",
+		"Dark.dc.html",
+		"RadioList.dc.html",
+		"Chips.dc.html",
+		"Inline.dc.html",
+		"Status.dc.html",
+		"Slider.dc.html",
+		"Settings.dc.html",
+		"Stepper.dc.html",
+		"Grouped.dc.html",
+		"ToolbarIcons.dc.html"
+	],
+	"notes": {
+		"heading": {"x": 0, "y": -300, "text": "YouTube Quality popup: 10 options in Chrome's Material style", "kind": "title1", "maxW": 2120}
+	},
+	"designSystems": []
+}

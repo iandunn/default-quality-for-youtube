@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Slider</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#0b57d0}a:hover{color:#041e49}
+input[type=range]{accent-color:#0b57d0}
+input[type=checkbox]{accent-color:#0b57d0}
+</style>
+</helmet>
+<div style="width: 320px; height: 190px; box-sizing: border-box; padding: 18px 20px; display: flex; flex-direction: column; gap: 12px; background: #ffffff; color: #1f1f1f; font-family: system-ui, -apple-system, sans-serif;">
+<div style="display: flex; align-items: baseline; justify-content: space-between;">
+<label for="quality" style="font-size: 14px; font-weight: 500;">Default quality</label>
+<span style="font-size: 20px; font-weight: 500; color: #0b57d0;">{{current}}</span>
+</div>
+<input id="quality" type="range" min="0" max="8" step="1" value="{{index}}" onChange="{{move}}" style="width: 100%; margin: 0;">
+<div style="display: flex; justify-content: space-between; font-size: 11px; color: #474747;">
+<span>144p</span>
+<span>480p</span>
+<span>1080p</span>
+<span>4K</span>
+<span>8K</span>
+</div>
+<label style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #1f1f1f; padding-top: 8px; border-top: 1px solid #c4c7c5;">
+<input type="checkbox" style="width: 16px; height: 16px; margin: 0;">
+Let YouTube choose (Auto)
+</label>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":320,"height":190}}'>
+class Component extends DCLogic {
+renderVals() {
+const steps = ['144p', '240p', '360p', '480p', '720p', '1080p', '1440p', '2160p', '4320p'];
+const index = (this.state && this.state.index != null) ? this.state.index : 5;
+return {
+index: index,
+current: steps[index],
+move: (event) => this.setState({ index: Number(event.target.value) })
+};
+}
+}
+</script>
+</body>
+</html>

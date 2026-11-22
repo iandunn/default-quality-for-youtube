@@ -1,0 +1,8 @@
+{
+	"chromeDevtools": {
+		"sites": [
+			"www.youtube.com",
+			"music.youtube.com"
+		]
+	}
+}

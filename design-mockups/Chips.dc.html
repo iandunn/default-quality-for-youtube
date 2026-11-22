@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Filter chips</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+a{color:#0b57d0}a:hover{color:#041e49}
+</style>
+</helmet>
+<div style="width: 320px; height: 230px; box-sizing: border-box; padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; background: #ffffff; color: #1f1f1f; font-family: system-ui, -apple-system, sans-serif;">
+<div style="display: flex; flex-direction: column; gap: 2px;">
+<h1 style="margin: 0; font-size: 14px; font-weight: 500;">Default quality</h1>
+<p style="margin: 0; font-size: 12px; color: #474747;">Uses the closest one a video has.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;">
+<sc-for list="{{items}}" as="item" hint-placeholder-count="10">
+<button type="button" aria-pressed="{{item.pressed}}" onClick="{{item.pick}}" style="{{item.chipStyle}}">
+<sc-if value="{{item.selected}}" hint-placeholder-val="{{false}}">
+<svg width="16" height="16" viewBox="0 -960 960 960" fill="#041e49" aria-hidden="true"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"></path></svg>
+</sc-if>
+<span>{{item.label}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":320,"height":230}}'>
+class Component extends DCLogic {
+renderVals() {
+const picked = (this.state && this.state.picked) || '1080p';
+const labels = ['Auto', '4320p', '2160p', '1440p', '1080p', '720p', '480p', '360p', '240p', '144p'];
+const base = 'display: flex; align-items: center; justify-content: center; gap: 4px; height: 32px; padding: 0 6px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 500; cursor: pointer;';
+return {
+items: labels.map((label) => ({
+label: label,
+selected: label === picked,
+pressed: label === picked ? 'true' : 'false',
+chipStyle: base + (label === picked ? ' background: #d3e3fd; color: #041e49; border: 1px solid #d3e3fd;' : ' background: #ffffff; color: #474747; border: 1px solid #747775;'),
+pick: () => this.setState({ picked: label })
+}))
+};
+}
+}
+</script>
+</body>
+</html>
