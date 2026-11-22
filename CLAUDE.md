@@ -29,6 +29,12 @@ A minimal Chrome extension that sets a default YouTube video quality from a drop
 
 - The isolated Chrome DevTools MCP browser can't load unpacked extensions, so test the player logic by injecting `content-player.js` with `navigate_page`'s `initScript`, plus a stub that answers the request event with a quality.
 - YouTube Music blocks headless Chrome's user agent. Use `emulate` with a regular Chrome user agent first.
+- These test videos are listed by their highest quality, and each one also has the usual lower qualities. The headless browser isn't logged in, so it never sees Premium or Super resolution entries. Those were seen in the user's Premium account.
+	- https://www.youtube.com/watch?v=KppnHrffns0: 1080p. The user's Premium account also gets 1080p Premium.
+	- https://www.youtube.com/watch?v=Q1NKo9gHm1s: 2160p.
+	- https://www.youtube.com/watch?v=Xw1C5T-fH2Y: 720p.
+	- https://www.youtube.com/watch?v=8HCtBPJuIZc: 480p.
+	- https://www.youtube.com/watch?v=vtyXbTHKhI0: 240p.
 - Embeds wouldn't play in the headless browser (errors 152 and 153), so embed support has only been checked as far as the embed page having `#movie_player` with the same API methods.
 
 
