@@ -1,0 +1,3 @@
+// Signing is specific to each developer, so `DEVELOPMENT_TEAM` goes in a `Local.xcconfig` next to
+// this file, which Git ignores. See the README for setup.
+#include? "Local.xcconfig"
